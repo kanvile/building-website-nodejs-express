@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const FeedbackService = require('./services/FeedbackService');
 const SpeakersService = require('./services/SpeakerService');
 
-const feedbackService = new FeedbackService('./data/feedbcak.json');
+const feedbackService = new FeedbackService('./data/feedback.json');
 const speakersService = new SpeakersService('./data/speakers.json');
 
 const routes = require('./routes');
@@ -24,7 +24,7 @@ app.set('trust proxy', 1);
 app.use(
   cookieSession({
     name: 'session',
-    keys: ['iyiyowbhyub', 'yjakbdfiaufb'],
+    keys: ['Ghdur687399s7w', 'hhjjdf89s866799'],
   })
 );
 
@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, './static')));
 app.use(async (request, response, next) => {
   try {
     const names = await speakersService.getNames();
-    response.locals.speakersNames = names;
+    response.locals.speakerNames = names;
     return next();
   } catch (err) {
     return next(err);
@@ -57,7 +57,7 @@ app.use(
 );
 
 app.use((request, response, next) => {
-  next(createError(404, 'File not found'));
+  return next(createError(404, 'File not found'));
 });
 
 app.use((err, request, response, next) => {

@@ -4,16 +4,17 @@
       <div class="maincontent">
         <h1>Send us feedback</h1>
 
-        <div class="feedback-status" <% if(locals.errors) {%>
+        <div class="feedback-status">
+          <% if(locals.errors) {%>
           <div class="alert alert-danger">
             <ul>
-              <% errors.forEach(function(error){%>
-              <li><%= error.msg%></li>
+              <% errors.forEach(function (error) {%>
+              <li><%= error.msg %></li>
               <%})%>
             </ul>
           </div>
-          <%}else if(locals.successMessage) {%>
-          <div class="alert alert-success"><%=successMessage%></div>
+          <%} else if(locals.successMessage) {%>
+          <div class="alert alert-success"><%= successMessage %></div>
           <%}%>
         </div>
 
@@ -34,7 +35,7 @@
               type="text"
               class="form-control"
               id="feedback-form-email"
-              name="name"
+              name="email"
               placeholder="Enter your email address"
             />
           </div>
@@ -68,7 +69,7 @@
         <h1>Recent Feedback</h1>
 
         <div class="feedback-items">
-          <% feedback.forEach(function (item){%>
+          <% feedback.forEach(function (item) {%>
           <div class="feedback-item item-list media-list">
             <div class="feedback-item media">
               <div class="feedback-info media-body">

@@ -1,6 +1,36 @@
 [
   {
-    "name": "Frank",
+    "name": "Daniel",
+    "email": "test@test2.com",
+    "title": "Final message",
+    "message": "This page is finished now"
+  },
+  {
+    "name": "Daniel",
+    "email": "test@test.com",
+    "title": "Let&#x27;s try again",
+    "message": "This should now really work"
+  },
+  {
+    "name": "Daniel",
+    "email": "test@test.com",
+    "title": "SPA Feedback",
+    "message": "This should now work"
+  },
+  {
+    "name": "Daniel",
+    "email": "test@test.com",
+    "title": "REST Title Test",
+    "message": "This was sent via REST"
+  },
+  {
+    "name": "Daniel",
+    "email": "test@test.com",
+    "title": "This was very nice",
+    "message": "I will come again next week!"
+  },
+  {
+    "name": "Jim",
     "email": "frank-smith@gmail.com",
     "title": "Best Meetup Ever",
     "message": "I really love this meetup. Please don't let it end."

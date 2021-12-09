@@ -1,7 +1,7 @@
 const express = require('express');
 
-const speakersRoutes = require('./speakers');
-const feedbackRoutes = require('./feedback');
+const speakersRoute = require('./speakers');
+const feedbackRoute = require('./feedback');
 
 const router = express.Router();
 
@@ -23,8 +23,8 @@ module.exports = (params) => {
     }
   });
 
-  router.use('./speakers', speakersRoutes(params));
-  router.use('./feedback', feedbackRoutes(params));
+  router.use('/speakers', speakersRoute(params));
+  router.use('/feedback', feedbackRoute(params));
 
   return router;
 };

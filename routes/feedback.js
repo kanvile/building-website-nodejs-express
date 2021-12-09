@@ -6,7 +6,7 @@ const router = express.Router();
 
 const validations = [
   check('name').trim().isLength({ min: 3 }).escape().withMessage('A name is required'),
-  check('email').trim().isEmail().normalizaEmail().withMessage('A valid email address is required'),
+  check('email').trim().isEmail().normalizeEmail().withMessage('A valid email address is required'),
   check('title').trim().isLength({ min: 3 }).escape().withMessage('A title is required'),
   check('message').trim().isLength({ min: 5 }).escape().withMessage('A message is required'),
 ];
@@ -20,7 +20,7 @@ module.exports = (params) => {
 
       const errors = request.session.feedback ? request.session.feedback.errors : false;
 
-      const successMessage = request.session.feedback ? request.session.feedback.errors : false;
+      const successMessage = request.session.feedback ? request.session.feedback.message : false;
 
       request.session.feedback = {};
 
@@ -41,7 +41,7 @@ module.exports = (params) => {
       const errors = validationResult(request);
 
       if (!errors.isEmpty()) {
-        request.session.feedbcak = {
+        request.session.feedback = {
           errors: errors.array(),
         };
         return response.redirect('/feedback');
@@ -52,7 +52,7 @@ module.exports = (params) => {
       request.session.feedback = {
         message: 'Thank you for your feedback!',
       };
-      return response.redirect('Feedback form posted');
+      return response.redirect('/feedback');
     } catch (err) {
       return next(err);
     }
